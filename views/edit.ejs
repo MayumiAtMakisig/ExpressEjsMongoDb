@@ -1,0 +1,59 @@
+<%- include('./partials/head.ejs')%>
+<div class="container">
+  <h1>View / Update</h1>
+  <div class="row d-flex justify-content-center">
+    <div class="col-4">
+    <div class="card record-view p-1">
+      <img class="card-img-top" src=<%= book.linkBookImage%> alt="Image of a book">
+      <div class="card-body">
+        <h5 class="card-title">ID: <%= book.id%></h5>
+        <p class="card-text">
+          <ul type="none">
+            <li>Title: <%= book.title%></li>
+            <li>Author: <%= book.author%></li>
+            <li>Completed: <%= book.completed%></li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    </div>
+    <div class="col-8 w-50">
+    <form action="<%="/library/edit/"+book.id%>" method="POST">
+      <div class="form-group">
+          <input type="text" class="form-control hidden" id="id" name="id"   value="<%= book.id%>" readonly>
+      </div>
+      <div class="form-group">
+          <label for="title">Book title:</label>
+          <input type="text" class="form-control" id="title" name="title"  value="<%= book.title%>" required>
+      </div>
+      <div class="form-group">
+          <label for="order">Order:</label>
+          <input type="number" class="form-control" id="order" name="order" value="<%= book.order%>" required>
+      </div>
+      <label for="completed">Completed:</label><br>
+      <select class="w-100" id="completed" name="completed">
+        <% if (book.completed == true) { %>
+          <option value="true" selected>True</option>
+          <option value="false">False</option>
+        <% } else { %>
+          <option value="true">True</option>
+          <option value="false" selected>False</option>
+        <% } %>
+      </select>
+      <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" class="form-control" id="author" name="author" value="<%= book.author%>" required>
+      </div>
+      <div class="form-group">
+        <label for="linkBookImage">Image Source:</label>
+        <input type="text" class="form-control" id="linkBookImage" name="linkBookImage"  value="<%= book.linkBookImage%>" required>
+      </div>
+      <div> 
+          <button type="submit" class="btn btn-success">Edit</button>
+          <a href=<%="/library/"%> class="btn btn-danger">Cancel / Back</a>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<%- include('./partials/foot.ejs')%>

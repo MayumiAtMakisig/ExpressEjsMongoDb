@@ -1,0 +1,31 @@
+<hr class="hr" />
+<form action="/library/" method="GET">
+    <div class="form-group row rounded">
+        <div class="col-12">
+            <input id="search" class="form-control rounded" type="text" name="search" placeholder="Search by Book Title or Author" value="<%= search != '' ? search: '' %>" >
+        </div>
+        <div class="d-flex justify-content-end">
+            <div class="pt-3 me-2">
+                <label for="completed">Status:</label>
+                <select name="completed" id="completed">
+                    <option value="ALL" <%= completed == "ALL" ? 'selected' : '' %>>All</option>
+                    <option value="True" <%= completed == "True" ? 'selected' : '' %>>Complete</option>
+                    <option value="False" <%= completed == "False" ? 'selected' : '' %>>Incomplete</option>
+                </select>
+            </div>    
+            <div class="pt-3 me-2">
+                <label for="limit">Number of items per page:</label>
+                <select name="limit" id="limit">
+                    <option value="5" <%= limit == 5 ? 'selected' : '' %>>5</option>
+                    <option value="10" <%= limit == 10 ? 'selected' : '' %>>10</option>
+                    <option value="15" <%= limit == 15 ? 'selected' : '' %>>20</option>
+                    <option value="20" <%= limit == 20 ? 'selected' : '' %>>30</option>
+                </select>
+            </div>
+            <div class="pt-2">
+                <button class="btn btn-dark bg-gradient" type="submit"><i class="bi bi-search"></i> Search</button>
+            </div>
+        </div>
+    </div>
+</form>
+<hr class="hr" />

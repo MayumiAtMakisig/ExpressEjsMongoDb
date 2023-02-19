@@ -1,0 +1,21 @@
+<%- include('./partials/head.ejs')%>
+<div class="container">
+<h1><%= books.title%></h1>
+  <div class="d-flex justify-content-center">
+    <div class="card record-view p-1">
+      <img class="card-img-top" src=<%= books.linkBookImage%> alt="Image of a book">
+      <div class="card-body">
+        <p class="card-text">
+          <ul type="none">
+            <li>Title: <%= books.title%></li>
+            <li>Author: <%= books.author%></li>
+            <li>Completed: <%= books.completed%></li>
+            <li>Order: <%= books.order%></li>
+          </ul>
+        </p>
+        <a href=<%="/library"%> class="btn btn-sm btn-secondary">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('./partials/foot.ejs')%>
